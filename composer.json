@@ -3,7 +3,6 @@
     "description": "The laravel cms package.",
     "keywords": ["framework", "laravel", "translate", "lumen", "admin-default"],
     "homepage": "http://www.mvsoft.eu/laravel/packages",
-    "repositories": [ { "type": "composer", "url": "http://packages.mkwebsites.lv/" } ],
     "authors": [
         {
             "name": "Martins Vecbralis",
@@ -11,8 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9",
-        "mvsoft/translate": "dev-master-full"
+        "php": ">=5.5.9"
     },
     "autoload": {
         "psr-4": {
