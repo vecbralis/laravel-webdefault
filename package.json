@@ -16,6 +16,9 @@
     "daterangepicker": "^0.0.3",
     "fastclick": "^1.0.6",
     "jqvmap": "^1.0.0",
-    "knob": "^0.3.0"
+    "knob": "^0.3.0",
+    "angular-ui-router": "^0.2.15",
+    "angular": "^1.4.7",
+    "angular-loading-bar": "^0.8.0"
   }
 }
