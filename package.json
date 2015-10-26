@@ -5,11 +5,17 @@
   },
   "dependencies": {
     "laravel-elixir": "^3.0.0",
-    "bootstrap-sass": "^3.0.0",
     "bootstrap": "^3.3.5",
     "jquery": "^2.1.*",
+    "jquery-ui": "^1.10.5",
     "toastr": "^2.1.2",
     "bootstrap-datetimepicker.js": "^1.0.0",
-    "fullcalendar": "^2.4.*"
+    "fullcalendar": "^2.4.*",
+    "bootstrap-slider": "^5.2.0",
+    "bootstrap-colorpicker": "^2.2.0",
+    "daterangepicker": "^0.0.3",
+    "fastclick": "^1.0.6",
+    "jqvmap": "^1.0.0",
+    "knob": "^0.3.0"
   }
 }

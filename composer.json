@@ -18,5 +18,8 @@
         "psr-4": {
             "MVsoft\\Webdefault\\": "src/"
         }
+    },
+    "archive": {
+        "exclude": ["/plugins"]
     }
 }
