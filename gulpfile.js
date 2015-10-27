@@ -4,8 +4,7 @@ var shell   = require('gulp-shell');
 var elixir  = require('laravel-elixir');
 var notify = require("gulp-notify");
 var watch = require('gulp-watch');
-
-var gitAutoMessage = 'Fast change automatic WEBdefault';
+var gutil = require('gulp-util');
 
 elixir(function(mix) {
     
@@ -50,7 +49,7 @@ gulp.task('migrations-watch', function(){
 //Automatic git on file changes
 
 var runGit = function(){
-    gulp.src("").pipe(shell("git add -A && git commit -m '"+gitAutoMessage+"' && git push origin"));
+    gulp.src("").pipe(shell("git add -A && git commit -m '"+gutil.env.message+"' && git push"));
 };
 
 gulp.task('git-auto', function(){

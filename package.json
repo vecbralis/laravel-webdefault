@@ -5,7 +5,8 @@
     "gulp-connect-php": "^0.0.5",
     "gulp-shell": "^0.5.0",
     "gulp-notify": "^2.2.0",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "gulp-util": "^3.0.7"
   },
   "dependencies": {
     "laravel-elixir": "^3.0.0",
