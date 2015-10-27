@@ -2,9 +2,9 @@ var gulp    = require('gulp');
 var connect = require('gulp-connect-php');
 var shell   = require('gulp-shell');
 var elixir  = require('laravel-elixir');
-var notify = require("gulp-notify");
-var watch = require('gulp-watch');
-var gutil = require('gulp-util');
+var notify  = require("gulp-notify");
+var watch   = require('gulp-watch');
+var gutil   = require('gulp-util');
 
 elixir(function(mix) {
     

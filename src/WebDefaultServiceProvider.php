@@ -42,7 +42,30 @@ class WebDefaultServiceProvider extends ServiceProvider {
 	}
 
 	/**
-	 * 
+	 * Register all commands for MVsoft Webdefault part
+	 * @return void
+	 */
+	private function registerCommands()
+	{
+
+		$mvSoftCommands = 'MVsoft\Webdefault\Commands\/';
+		foreach(scandir(__DIR__.'/Commands/') AS $command)
+		{
+			$testFile = explode('.', $command);
+			if(isset($testFile[1]) && strlen($testFile[0]) > 7)
+			{
+				$commandFile = $mvSoftCommands.$testFile[0];
+				$this->app->singleton('command.mvsoftWebdefault.'.$testFile[0], function ($app) use ($commandFile) {
+		            return $app[str_replace('/', '', $commandFile)];
+		        });
+		        $this->commands('command.mvsoftWebdefault.'.$testFile[0]);
+			}
+		}
+
+	}
+
+	/**
+	 * Register all needed things for 
 	 * @return void
 	 */
 	public function register()
@@ -50,6 +73,9 @@ class WebDefaultServiceProvider extends ServiceProvider {
 		$this->mergeConfigFrom(
 	        __DIR__.'/config/webdefault.php', 'webdefault'
 	    );
+
+	    //Register all commands
+		$this->registerCommands();
 	}
 
 }
