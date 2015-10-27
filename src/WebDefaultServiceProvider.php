@@ -2,8 +2,7 @@
 
 namespace MVsoft\Webdefault;
 
-use Illuminate\Contracts\Auth\Access\Gate as GateContract;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class WebDefaultServiceProvider extends ServiceProvider {
 
@@ -11,11 +10,8 @@ class WebDefaultServiceProvider extends ServiceProvider {
 	 * Translate with database booting service
 	 * @return void
 	 */
-	public function boot(GateContract $gate)
+	public function boot()
 	{
-
-		$this->registerPolicies($gate);
-
 		//Load views from
 		$this->loadViewsFrom(__DIR__.'/../resources/views', 'mvsoft');
 		

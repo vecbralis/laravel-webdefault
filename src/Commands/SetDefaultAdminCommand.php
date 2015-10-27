@@ -4,8 +4,8 @@ namespace MVsoft\Webdefault\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Models\User;
-use App\Models\Role;
+use MVsoft\Webdefault\Models\User;
+use MVsoft\Webdefault\Models\Role;
 
 use Hash, File;
 
@@ -63,9 +63,9 @@ class SetDefaultAdminCommand extends Command {
         $admin->display_name = 'Administrator'; // optional
         $admin->description  = 'User is the administrator of a whole project'; // optional
         $admin->save();
-  
 
         $user->attachRole($owner);
+        
     }
 
 }
