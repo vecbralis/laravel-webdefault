@@ -21,7 +21,7 @@ Route::group([
 
 Route::group([
 	'namespace'  => '\MVsoft\Webdefault\Http\Controllers',
-	'middleware' => ['webadmin', 'role:admin'],
+	'middleware' => ['webadmin'],
 	], 
 function(){
 
