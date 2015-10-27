@@ -47,9 +47,9 @@ gulp.task('migrations-watch', function(){
 });
 
 //Automatic git on file changes
-
 var runGit = function(){
     gulp.src("").pipe(shell("git add -A && git commit -m '"+gutil.env.message+"' && git push"));
+    gulp.src("").pipe(notify("MVsoft git changes pushed"));
 };
 
 gulp.task('git-auto', function(){
