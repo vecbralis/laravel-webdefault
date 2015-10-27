@@ -48,6 +48,11 @@ gulp.task('migrations-watch', function(){
 });
 
 //Automatic git on file changes
+
+var runGit = function(){
+    gulp.src("").pipe(shell("git add -A && git commit -m '"+gitAutoMessage+"' && git push origin"));
+};
+
 gulp.task('git-auto', function(){
     watch("public/**/*", function(){
         runGit();
