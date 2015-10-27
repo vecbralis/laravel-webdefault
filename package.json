@@ -1,7 +1,11 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "gulp-connect-php": "^0.0.5",
+    "gulp-shell": "^0.5.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-watch": "^4.3.5"
   },
   "dependencies": {
     "laravel-elixir": "^3.0.0",
@@ -19,6 +23,9 @@
     "knob": "^0.3.0",
     "angular-ui-router": "^0.2.15",
     "angular": "^1.4.7",
-    "angular-loading-bar": "^0.8.0"
+    "angular-loading-bar": "^0.8.0",
+    "angular-animate": "^1.4.7",
+    "angular-bootstrap": "^0.12.2",
+    "angular-select2": "^1.4.2"
   }
 }
