@@ -1,7 +1,7 @@
 {
     "name": "mvsoft/webdefault",
     "description": "The laravel cms package.",
-    "keywords": ["framework", "laravel", "translate", "lumen", "admin-default"],
+    "keywords": ["laravel", "lumen", "admin-default"],
     "homepage": "http://www.mvsoft.eu/laravel/packages",
     "authors": [
         {
