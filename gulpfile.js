@@ -13,8 +13,21 @@ elixir(function(mix) {
     	'webAdmin.less',
         '../../../node_modules/angular/angular-csp.css',
         '../../../node_modules/angular-loading-bar/src/loading-bar.css',
-        '../../../plugins/select2/select2.css'
+        '../../../plugins/select2/select2.css',
+        '../../../plugins/iCheck/square/blue.css'
     ], 'public/assets/admin/css/admin.css')
+    .less([
+            'skins/*.less'
+        ], 'public/assets/admin/css/skins.css')
+    //Login page scripts
+    .scripts([
+            '../../../plugins/jQuery/jQuery-2.1.4.min.js',
+            '../../../public/assets/admin/bootstrap/js/bootstrap.min.js',
+            '../../../plugins/iCheck/icheck.min.js',
+            'login/**/*.js'
+        ], 'public/assets/admin/js/login.js')
+
+    //Default scripts
     .scripts([
             '../../../node_modules/jquery/dist/jquery.min.js',
             '../../../plugins/jQueryUI/jquery-ui.min.js',
