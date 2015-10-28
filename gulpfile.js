@@ -19,6 +19,7 @@ elixir(function(mix) {
     .less([
             'skins/*.less'
         ], 'public/assets/admin/css/skins.css')
+    
     //Login page scripts
     .scripts([
             '../../../plugins/jQuery/jQuery-2.1.4.min.js',

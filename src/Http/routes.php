@@ -9,40 +9,7 @@ Route::group(['namespace'  => '\MVsoft\Webdefault\Http\Controllers'], function()
 
 });
 
-Route::get('infotest', function(){
-	
-	// if(Gate::has('check-permission'))
-	// {
-	// 	return 'Hi have are you';
-	// }
-
-	if(Gate::denies('check-permission', ['ttests']))
-	{
-		return 'tests';
-	}
-	else
-	{
-		return 'tests good';
-	}
-});
-
-Route::group([
-	'prefix'     => Config::get('webdefault.link'),
-	'namespace'  => '\MVsoft\Webdefault\Http\Controllers',
-	'middleware' => ['webadmin']
-	], function(){
-		Route::get('test', function(){
-			if(Gate::denies('check-permission', [['sadf', 'asddsf', '11233'], 'fuck off']))
-			{
-				return 'tests';
-			}
-			else
-			{
-				return 'tests good';
-			}
-		});
-});
-
+//Default admin default view parts for AngularJS.
 Route::group([
 	'namespace'  => '\MVsoft\Webdefault\Http\Controllers',
 	'middleware' => ['webadmin'],
@@ -58,5 +25,20 @@ function(){
 	Route::get('webadmin/footer', function(){
 		return view('mvsoft::partials.footer');
 	});
+
+});
+
+//Start run default admin
+Route::group([
+	'prefix'     => Config::get('webdefault.link'), //This is default link for admin part
+	'namespace'  => '\MVsoft\Webdefault\Http\Controllers', //Naspace to controller of this default admin package
+	'middleware' => ['webadmin'] //Middleware for admin part
+	], 
+function(){
+
+
+
+	//Run default controller
+	Route::controller('/', 'DefaultController');
 
 });
