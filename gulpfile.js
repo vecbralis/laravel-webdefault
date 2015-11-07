@@ -5,14 +5,14 @@ var elixir  = require('laravel-elixir');
 var notify  = require("gulp-notify");
 var watch   = require('gulp-watch');
 var gutil   = require('gulp-util');
+var browserSync = require('browser-sync').create();
+var reload      = browserSync.reload;
 
 elixir(function(mix) {
     
     //Default admin configuration
     mix.less([
     	'webAdmin.less',
-        '../../../node_modules/angular/angular-csp.css',
-        '../../../node_modules/angular-loading-bar/src/loading-bar.css',
         '../../../plugins/select2/select2.css',
         '../../../plugins/iCheck/square/blue.css'
     ], 'public/assets/admin/css/admin.css')
@@ -32,13 +32,19 @@ elixir(function(mix) {
     .scripts([
             '../../../node_modules/jquery/dist/jquery.min.js',
             '../../../plugins/jQueryUI/jquery-ui.min.js',
-            '../../../plugins/select2/select2.full.min.js',
+            'beforeBootstrap/**/*.js',
             '../../../node_modules/bootstrap/dist/js/bootstrap.min.js',
+            '../../../plugins/select2/select2.full.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js',
+            '../../../plugins/daterangepicker/daterangepicker.js',
+            '../../../plugins/datepicker/bootstrap-datepicker.js',
+            '../../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
+            '../../../plugins/slimScroll/jquery.slimscroll.min.js',
+            '../../../plugins/fastclick/fastclick.min.js',
+            'beforeAngular/**/*.js',
             '../../../node_modules/angular/angular.min.js',
-            '../../../node_modules/angular-ui-router/build/angular-ui-router.js',
-            '../../../node_modules/angular-loading-bar/src/loading-bar.js',
             '../../../node_modules/angular-animate/angular-animate.min.js',
-            '../../../node_modules/angular-bootstrap/ui-bootstrap.min.js'
+            'afterAnguar/**/*.js'
         ], 'public/assets/admin/js/default.js')
         .copy('public/assets/admin', '../../../public/assets/admin');
 });
@@ -46,10 +52,23 @@ elixir(function(mix) {
 
 //Watch for view changes and publish it automatic
 gulp.task("view-watch", function(){
-    watch("resources/views/**/*.php", function(){
-        gulp.src("").pipe(shell("cd ../../../ && php artisan vendor:publish --tag=mvsoft.webdefault.views --force && echo DONE"));
-        gulp.src("").pipe(notify("MVsoft webdefault view file changes saved."));
+
+    browserSync.init({
+        proxy: {
+            target: "http://compare.local.lv",
+            ws: true
+        }
     });
+
+    watch("resources/views/**/*.php", function(){
+        gulp.src("").pipe(shell("cd ../../../ && php artisan vendor:publish --tag=mvsoft.webdefault.views --force && echo DONE"))
+        .pipe(notify("MVsoft webdefault view file changes saved."))
+        .pipe(browserSync.stream());
+    });
+
+    //Reload on config change or PHP file change
+    watch("src/**/*.php", browserSync.reload);
+
 });
 
 //Watch for migrations

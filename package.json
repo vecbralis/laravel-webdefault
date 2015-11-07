@@ -6,7 +6,8 @@
     "gulp-shell": "^0.5.0",
     "gulp-notify": "^2.2.0",
     "gulp-watch": "^4.3.5",
-    "gulp-util": "^3.0.7"
+    "gulp-util": "^3.0.7",
+    "browser-sync": "^2.9.11"
   },
   "dependencies": {
     "laravel-elixir": "^3.0.0",
@@ -22,11 +23,8 @@
     "fastclick": "^1.0.6",
     "jqvmap": "^1.0.0",
     "knob": "^0.3.0",
-    "angular-ui-router": "^0.2.15",
     "angular": "^1.4.7",
     "angular-loading-bar": "^0.8.0",
-    "angular-animate": "^1.4.7",
-    "angular-bootstrap": "^0.12.2",
-    "angular-select2": "^1.4.2"
+    "angular-animate": "^1.4.7"
   }
 }

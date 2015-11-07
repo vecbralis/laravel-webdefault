@@ -2,6 +2,7 @@
 
 namespace MVsoft\Webdefault;
 
+use MVsoft\Webdefault\Services\MVemail;
 use Illuminate\Support\ServiceProvider;
 
 class WebDefaultServiceProvider extends ServiceProvider {
@@ -73,6 +74,12 @@ class WebDefaultServiceProvider extends ServiceProvider {
 		$this->mergeConfigFrom(
 	        __DIR__.'/config/webdefault.php', 'webdefault'
 	    );
+
+
+		//Register Facade
+	    $this->app['mvemail'] = $this->app->share(function ($app) {
+            return new MVemail();
+        });
 
 	    //Register all commands
 		$this->registerCommands();

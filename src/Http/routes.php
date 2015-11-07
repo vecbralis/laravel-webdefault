@@ -9,25 +9,6 @@ Route::group(['namespace'  => '\MVsoft\Webdefault\Http\Controllers'], function()
 
 });
 
-//Default admin default view parts for AngularJS.
-Route::group([
-	'namespace'  => '\MVsoft\Webdefault\Http\Controllers',
-	'middleware' => ['webadmin'],
-	], 
-function(){
-
-	//Load header
-	Route::get('webadmin/header', function(){
-		return view('mvsoft::partials.header');
-	});
-
-	//Load footer
-	Route::get('webadmin/footer', function(){
-		return view('mvsoft::partials.footer');
-	});
-
-});
-
 //Start run default admin
 Route::group([
 	'prefix'     => Config::get('webdefault.link'), //This is default link for admin part
