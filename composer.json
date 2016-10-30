@@ -1,5 +1,5 @@
 {
-    "name": "mvsoft/webdefault",
+    "name": "vecbralis/laravel-webdefault",
     "description": "The laravel default admin package.",
     "keywords": ["laravel", "lumen", "admin-default"],
     "homepage": "http://www.mvsoft.eu/laravel/packages",
