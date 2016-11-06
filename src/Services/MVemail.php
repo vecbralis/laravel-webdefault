@@ -68,9 +68,10 @@ class MVemail {
     				$message->attachDate($file['file']->fileOutput(), $file['name']);
 
     		//Run callback
-    		if($callback)	
-    			$callback(true);
-
+    		if($callback) {	
+	    		$callback($message);
+		}
+		
 		});
 
     }
